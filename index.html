@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="module" src="app.js"></script>
+    <title>Gym Timer</title>
+</head>
+<body>
+    <div class="container-flex">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-around">    
+            <button id="stopwatch" type="btn" class="btn btn-light active">Stopwatch</button>
+            <button id="timer" type="btn" class="btn btn-light">Timer</button>
+            <button id="workoutMaker" type="btn" class="btn btn-light">Workout Maker</button>
+        </nav>
+
+        <div class="container justify-content-center">
+            <br>
+            <br>
+            <br>
+            <h1 id="counter" class="text-center">00:00:00</h1>
+            <br>
+            <div class="text-center">
+                <div class="btn-group btn-group-lg">
+                    <button id="sw-start" type="button" class="btn mr-3 rounded btn-dark">Start</button>
+                    <button id="sw-reset" type="button" class="btn rounded btn-dark">Reset</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
