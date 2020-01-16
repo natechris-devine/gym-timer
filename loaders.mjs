@@ -5,6 +5,7 @@ function load(page="stopwatch") {
 }
 
 function async_load(endpoint) {
+    // This function should connect with a php backend to get the various clock modes.
     console.log(endpoint);
 }
 

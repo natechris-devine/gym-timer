@@ -8,7 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="module" src="app.js"></script>
+    <script type="module" src="app.mjs"></script>
+    <script src="stopwatch.js"></script>
     <title>Gym Timer</title>
 </head>
 <body>
@@ -27,8 +28,8 @@
             <br>
             <div class="text-center">
                 <div class="btn-group btn-group-lg">
-                    <button id="sw-start" type="button" class="btn mr-3 rounded btn-dark">Start</button>
-                    <button id="sw-reset" type="button" class="btn rounded btn-dark">Reset</button>
+                    <button id="sw-start" type="button" class="btn mr-3 rounded btn-dark" onclick="swRun()">Start</button>
+                    <button id="sw-reset" type="button" class="btn rounded btn-dark" onclick="swReset()">Reset</button>
                 </div>
             </div>
         </div>
