@@ -45,4 +45,5 @@ function swReset() {
     h = 0;
     $("#counter").html("00:00:00");
     $("#sw-start").html("Start");
+    if (timerID) {clearInterval(timerID);}
 }

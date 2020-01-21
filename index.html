@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script type="module" src="app.mjs"></script>
     <script src="stopwatch.js"></script>
+    <script src="timer.js"></script>
     <title>Gym Timer</title>
 </head>
 <body>
@@ -19,20 +20,43 @@
             <button id="timer" type="btn" class="btn btn-light">Timer</button>
             <button id="workoutMaker" type="btn" class="btn btn-light">Workout Maker</button>
         </nav>
-
-        <div class="container justify-content-center">
-            <br>
-            <br>
-            <br>
-            <h1 id="counter" class="text-center">00:00:00</h1>
-            <br>
-            <div class="text-center">
-                <div class="btn-group btn-group-lg">
-                    <button id="sw-start" type="button" class="btn mr-3 rounded btn-dark" onclick="swRun()">Start</button>
-                    <button id="sw-reset" type="button" class="btn rounded btn-dark" onclick="swReset()">Reset</button>
+        <br>
+        <br>
+        <br>
+        <div id="sw-region">
+            <div class="container justify-content-center">
+                <h1 id="counter" class="text-center">00:00:00</h1>
+                <br>
+                <div class="text-center">
+                    <div class="btn-group btn-group-lg">
+                        <button id="sw-start" type="button" class="btn mr-3 rounded btn-dark" onclick="swRun()">Start</button>
+                        <button id="sw-reset" type="button" class="btn rounded btn-dark" onclick="swReset()">Reset</button>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <div id="tmr-region">
+            <div class="container justify-content-center">
+                <h1 id="countdown" class="text-center">
+                    <span id="hr" onclick="selectTime(this.id)">00</span>hr
+                    <span id="min" onclick="selectTime(this.id)">00</span>min
+                    <span id="sec" onclick="selectTime(this.id)">00</span>sec
+                </h1>
+            </div>
+            <br>
+                <div class="text-center">
+                    <div class="btn-group btn-group-lg">
+                        <button id="tmr-start" type="button" class="btn mr-3 rounded btn-dark" onclick="tmrRun()">Start</button>
+                        <button id="tmr-reset" type="button" class="btn rounded btn-dark" onclick="tmrReset()">Reset</button>
+                    </div>
+                </div>
+        </div>
+
+        <div id="wrk-region">
+
+        </div>
+
 
     </div>
 </body>
