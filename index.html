@@ -38,17 +38,46 @@
         
         <div id="tmr-region">
             <div class="container justify-content-center">
-                <h1 id="countdown" class="text-center">
-                    <span id="hr" onclick="selectTime(this.id)">00</span>hr
-                    <span id="min" onclick="selectTime(this.id)">00</span>min
-                    <span id="sec" onclick="selectTime(this.id)">00</span>sec
-                </h1>
+                <!-- <h1 id="countdown" class="text-center">
+                    <span id="hr" onclick="selectTime(this.id)">00:</span><span id="min" onclick="selectTime(this.id)">00:</span><span id="sec" onclick="selectTime(this.id)">00</span>
+                </h1> -->
+                <h1 id="countdown" class="text-center" data-toggle="modal" data-target="#timerModal">00:00:00</h1>
+            </div>
+            <div class="modal fade" id="timerModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="timerModalLabel">Set Time</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Enter a value between 0 and 59</p>
+                        <form>
+                          <div class="form-group">
+                            <label for="hr" class="col-form-label">Hr:</label>
+                            <input type="number" class="form-control" id="hr" min="0">
+                            <label for="min" class="col-form-label">Min:</label>
+                            <input type="number" class="form-control" id="min" min="0" max="59">
+                            <label for="sec" class="col-form-label">Sec:</label>
+                            <input type="number" class="form-control" id="sec" min="0" max="59">
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="selectTime()">Set Time</button>
+                      </div>
+                    </div>
+                  </div>
             </div>
             <br>
                 <div class="text-center">
                     <div class="btn-group btn-group-lg">
                         <button id="tmr-start" type="button" class="btn mr-3 rounded btn-dark" onclick="tmrRun()">Start</button>
-                        <button id="tmr-reset" type="button" class="btn rounded btn-dark" onclick="tmrReset()">Reset</button>
+                        <button id="tmr-reset" type="button" class="btn mr-3 rounded btn-dark" onclick="tmrReset()">Reset</button>
+                        <button id="tmr-clear" type="button" class="btn rounded btn-dark" onclick="tmrClear()">Clear</button>
                     </div>
                 </div>
         </div>

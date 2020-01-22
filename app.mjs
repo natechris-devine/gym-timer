@@ -1,4 +1,4 @@
-import { load, async_load } from './loaders.mjs';
+// import { load, async_load } from './loaders.mjs';
 
 /** Note to self
  * I may decide to just fully make this webpage operate entirely with Javascript rather than incorporating a PHP server
@@ -6,7 +6,7 @@ import { load, async_load } from './loaders.mjs';
  */
 
 $(document).ready(() => {
-    load("stopwatch");
+    // load("stopwatch");
     $("#tmr-region").hide();
     $("#wrk-region").hide();
 

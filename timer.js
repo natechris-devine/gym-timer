@@ -1,55 +1,76 @@
 // Timer
-let tmr_timer = 0;
+let tmr_timer = 0; //countdown timer in seconds
 let tmr_running = false;
-let timerID;
-let h = 0;
-let m = 0;
-let s = 0;
+let tmr_timerID;
+let th = 0;
+let tm = 0;
+let ts = 0;
 
-function selectTime(id) {
-    const upperLimit = 60;
-    let x = parseInt(prompt(`Enter a number less than ${upperLimit}`, 0));
-    if (x > 0 && x < upperLimit) {
-        if (id == "hr") {h = x}
-        else if (id == "min") {m = x}
-        else if (id == "sec") {s = x}
+function selectTime() {
+    
+    let hh = parseInt($("#hr").val());
+    let mm = parseInt($("#min").val());
+    let ss = parseInt($("#sec").val());
+    if (isNaN(hh)) {hh = th}
+    if (isNaN(mm)) {mm = tm}
+    if (isNaN(ss)) {ss = ts}
+    if (!(hh < 0 || mm < 0 || ss < 0 || ss >= 60 || mm >= 60)) {
+        th = hh;
+        tm = mm;
+        ts = ss
+        updateTimer();
+        console.log(tmr_timer);
+        $("#timerModal").modal('hide');
     }
-    updateTimer();
 }
 
-function updateTimer() {
-    let ss = checkTime(s);
-    let mm = checkTime(m);
-    let hh = checkTime(h);
+function updateTimer(running=false) {
+    let ss;
+    let mm;
+    let hh;
+    if (!running) {
+        tmr_timer = (th * 60 * 60) + (tm * 60) + ts;
+        ss = checkTime(ts);
+        mm = checkTime(tm);
+        hh = checkTime(th);
+    } else {
+        tmr_timer -= 1;
+        ss = checkTime(getTimeUnit("s"));
+        mm = checkTime(getTimeUnit("m"));
+        hh = checkTime(getTimeUnit("h"));
+    }
+    
     $("#countdown").html(`${hh}:${mm}:${ss}`);
+}
+
+function getTimeUnit(unit) {
+    if (unit == "h") {return Math.floor(tmr_timer / (60 * 60))}
+    else if (unit == "m") {return Math.floor((tmr_timer % (60 * 60)) / 60)}
+    else if (unit == "s") {return Math.floor((tmr_timer % 60))}
 }
 
 function tmrRun() {
     if(!tmr_running) {
         tmr_running = true;
         $("#tmr-start").html("Stop");
-        timerID = setInterval(swCounter, 1000);
+        tmr_timerID = setInterval(tmrCountDown, 1000);
     } else {
         tmr_running = false;
         $("#tmr-start").html("Start");
-        clearInterval(timerID);
+        clearInterval(tmr_timerID);
     }
 }
 
-function swCounter() {
-    s += 1;
-    if (s >= 60) {
-        m += 1;
-        s = 0;
+function tmrCountDown() {
+    if (tmr_timer > 0) {
+        updateTimer(true);
+    } else {
+        clearInterval(tmr_timerID);
+        updateTimer();
+        tmr_running = false;
+        $("#tmr-start").html("Start");
     }
-    if (m >= 60) {
-        h +=1;
-        m = 0;
-    }
-    let ss = checkTime(s);
-    let mm = checkTime(m);
-    let hh = checkTime(h);
-    $("#counter").html(`${hh}:${mm}:${ss}`);
+    
 }
 
 function checkTime(i) {
@@ -58,10 +79,18 @@ function checkTime(i) {
 }
 
 function tmrReset() {
-    s = 0;
-    m = 0;
-    h = 0;
-    $("#counter").html("00:00:00");
     $("#tmr-start").html("Start");
-    if (timerID) {clearInterval(timerID);}
+    if (tmr_timerID) {clearInterval(tmr_timerID);}
+    updateTimer();
+}
+
+function tmrClear() {
+    ts = 0;
+    tm = 0;
+    th = 0;
+    $("#tmr-start").html("Start");
+    if (tmr_timerID) {
+        clearInterval(tmr_timerID);
+        updateTimer();
+    }
 }
