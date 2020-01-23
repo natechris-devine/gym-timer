@@ -66,6 +66,8 @@ function tmrCountDown() {
         updateTimer(true);
     } else {
         clearInterval(tmr_timerID);
+        beep(800, 300, 800);
+        beep(999, 450, 800);
         updateTimer();
         tmr_running = false;
         $("#tmr-start").html("Start");
