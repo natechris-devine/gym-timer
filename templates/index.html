@@ -8,10 +8,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="module" src="app.mjs"></script>
-    <script src="beep.js"></script>
-    <script src="stopwatch.js"></script>
-    <script src="timer.js"></script>
+    <script type="module" src="{{ url_for('static', filename='app.mjs') }}"></script>
+    <script src={{ url_for('static', filename='beep.js') }}></script>
+    <script src={{ url_for('static', filename='stopwatch.js') }}></script>
+    <script src={{ url_for('static', filename='timer.js') }}></script>
+    <script src={{ url_for('static', filename='workoutMaker.js') }}></script>
     <title>Gym Timer</title>
 </head>
 <body>
@@ -84,7 +85,14 @@
         </div>
 
         <div id="wrk-region">
-
+          <div class="container justify-content-center">
+                <div class="text-center">
+                  <div class="btn-group btn-group-lg">
+                      <button id="sw-start" type="button" class="btn mr-3 rounded btn-primary" onclick="">Add Exercise</button>
+                      <button id="sw-reset" type="button" class="btn rounded btn-dark disabled" onclick="">Start Workout</button>
+                  </div>
+                </div>
+            </div>
         </div>
 
 
