@@ -5,3 +5,5 @@ A JavaScript Powered Timer for gym use. It has customizable rest times separate 
 **January 22, 2019 (15:54):** Timer basic functionality implemented. Want to add an alert sound when the timer
 expires. More rigourous testing needed. Also, this is my first entry to this log despite working on this project
 for at least a week.
+
+**January 28, 2019 (21:01):** Pushed app to Heroku. To push a sub branch to Heroku, do `git push heroku subbranch:master`
